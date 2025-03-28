@@ -1,4 +1,6 @@
 import org.example.Point;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,11 +9,25 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PointTest {
 
 
-    private Point a;
+//    private Point a;
+//
+//     we can add external method for common initialization
+//    @BeforeEach
+//    public void setUp() {
+//        a = new Point(1, 2);
+//    }
 
-    // we can add external method for common initialization
-    @BeforeEach
-    public void setUp() {
+    // execute common code after each test : deallocation
+    @AfterEach
+    public void tearDown() {
+        a = null;
+    }
+
+
+    private static Point a;
+
+    @BeforeAll
+    public static void setUp() {
         a = new Point(1, 2);
     }
 
@@ -55,4 +71,8 @@ public class PointTest {
         Point obtained = a.translater(1, 3);
         assertEquals(expected, obtained);
     }
+
+
+
+
 }
