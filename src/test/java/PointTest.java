@@ -1,8 +1,6 @@
 import org.example.Point;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -18,8 +16,8 @@ public class PointTest {
 //    }
 
     // execute common code after each test : deallocation
-    @AfterEach
-    public void tearDown() {
+    @AfterAll
+    public static void tearDown() {
         a = null;
     }
 
