@@ -1,16 +1,25 @@
 import org.example.Point;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.*;
 
 public class PointTest {
+
+
+    private Point a;
+
+    // we can add external method for common initialization
+    @BeforeEach
+    public void setUp() {
+        a = new Point(1, 2);
+    }
 
     @Test
     public final void testTranslater0_0()
 
     {
-        Point a = new Point(1, 2);
+//        Point a = new Point(1, 2);
         Point expected = new Point(1, 2);
         Point obtained = a.translater(0, 0);
         assertEquals(expected, obtained);
@@ -41,7 +50,7 @@ public class PointTest {
     // The test passes after the implementation of the equals() method in the Point class.
     @Test
     public final void testTranslater1_3() {
-        Point a = new Point(1, 2);
+//        Point a = new Point(1, 2);
         Point expected = new Point(2, 5);
         Point obtained = a.translater(1, 3);
         assertEquals(expected, obtained);
